@@ -1,14 +1,20 @@
 <!--
  * @Author: CAN1177
  * @Date: 2021-06-27 09:37:08
- * @LastEditTime: 2021-06-27 17:36:34
+ * @LastEditTime: 2021-06-28 22:15:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /yfs-component/src/App.vue
 -->
 <template>
   <div id="app">
-    <h1 class="title">CAN1177常用组件合集<a href="https://github.com/CAN1177/YFS-components">GitHub地址</a></h1>
+    <h1 class="title">
+      CAN1177常用组件合集<a
+        href="https://github.com/CAN1177/YFS-components"
+        target="view_window"
+        >GitHub地址</a
+      >
+    </h1>
 
     <div class="container">
       <h3>1、基于ElementUI二次封装的季度组件</h3>
@@ -17,7 +23,9 @@
       <h3>2、SVG环形进度条</h3>
       <progress-circle :size="100" :percent="0.4" />
 
-      <h3>3、ElementU下拉多选增加 <span style="color:skyblue">全选</span> 选项</h3>
+      <h3>
+        3、ElementU下拉多选增加 <span style="color:skyblue">全选</span> 选项
+      </h3>
       <select-all @selectedArray="selectedValue" :options="options" />
 
       <h3>4、ElementUI 多图上传拖拽排序</h3>
@@ -26,18 +34,27 @@
       <h3>5、Star 评分组件</h3>
       <star :starNum="5" @starMarkChange="starChange" />
 
-
-       <h3>6、Switchs组件</h3>
+      <h3>6、Switchs组件</h3>
       <switches
         @switch="switchItem"
         :switches="switches"
         :currentIndex="currentIndex"
       ></switches>
+
+      <h3>7、Loading组件</h3>
+      <div class="loading">
+        <loading :width="100" :color="color"></loading>
+        <loading1 :width="100" :color="color"></loading1>
+        <loading2 :width="100" :color="color"></loading2>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Loading from "@/components/loading/Loading.vue";
+import Loading1 from "@/components/loading/Loading1.vue";
+import Loading2 from "@/components/loading/Loading2.vue";
 import Season from "./components/Season.vue";
 import ProgressCircle from "./components/ProgressCircle";
 import SelectAll from "./components/AllSelectDropDown";
@@ -54,6 +71,9 @@ export default {
     // ImgUpload, //多图上传
     Star, //star 评分组件
     Switches, //switch 切换
+    Loading,
+    Loading1,
+    Loading2
   },
   data() {
     return {
@@ -76,6 +96,7 @@ export default {
           title: "选项2",
         },
       ],
+      color: "#9DE4B7",
     };
   },
   methods: {
@@ -89,7 +110,7 @@ export default {
       console.log("你的分数是", `${value}分`);
     },
     switchItem(index) {
-      console.log('第几个switch按钮: ', index);
+      console.log("选项是: ", index);
       this.currentIndex = index;
     },
   },
@@ -102,5 +123,11 @@ export default {
 }
 .container {
   margin-left: 20px;
+}
+.loading{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
 }
 </style>
