@@ -1,7 +1,7 @@
 <!--
  * @Author: CAN1177
  * @Date: 2021-06-27 09:37:08
- * @LastEditTime: 2021-06-28 22:15:44
+ * @LastEditTime: 2021-06-28 22:31:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /yfs-component/src/App.vue
@@ -20,9 +20,18 @@
       <h3>1、基于ElementUI二次封装的季度组件</h3>
       <season @value="selectValue" />
 
-      <h3>2、SVG环形进度条</h3>
-      <progress-circle :size="100" :percent="0.4" />
-
+      <h3>2、SVG --- Canvas环形进度条</h3>
+      <div class="progress">
+        <progress-circle :size="100" :percent="0.4" />
+        <progress-circle1
+          :percent="percent"
+          :progressConfig="progressConfig1"
+          :circleRadius="60"
+          :progressGradient="true"
+          :percentConfig="percentConfig1"
+          :percentGradient="true"
+        />
+      </div>
       <h3>
         3、ElementU下拉多选增加 <span style="color:skyblue">全选</span> 选项
       </h3>
@@ -56,7 +65,8 @@ import Loading from "@/components/loading/Loading.vue";
 import Loading1 from "@/components/loading/Loading1.vue";
 import Loading2 from "@/components/loading/Loading2.vue";
 import Season from "./components/Season.vue";
-import ProgressCircle from "./components/ProgressCircle";
+import ProgressCircle from "./components/progress/ProgressCircle";
+import ProgressCircle1 from "./components/progress/CircleProgress";
 import SelectAll from "./components/AllSelectDropDown";
 // import ImgUpload from "./components/ImgUpload"
 import Star from "./components/Star";
@@ -67,13 +77,14 @@ export default {
   components: {
     Season, //季度组件
     ProgressCircle, // svg环形进度条
+    ProgressCircle1, // canvas环形进度条
     SelectAll, // 下拉全选
     // ImgUpload, //多图上传
     Star, //star 评分组件
     Switches, //switch 切换
     Loading,
     Loading1,
-    Loading2
+    Loading2,
   },
   data() {
     return {
@@ -97,7 +108,26 @@ export default {
         },
       ],
       color: "#9DE4B7",
+      percent: 91,
+      progressConfig1: {
+        ringWidth: 6,
+        ringBackground: "#E5E9F2",
+        ringColor: "#20A0FF",
+        startGradient: "#8E71C7",
+        endGradient: "#09c669",
+      },
+      percentConfig1: {
+        size: 20,
+        txtColor: "#20A0FF",
+        startGradient: "#8E71C7",
+        endGradient: "#09c669",
+      },
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.percent = 50;
+    }, 2000);
   },
   methods: {
     selectValue(value) {
@@ -124,10 +154,9 @@ export default {
 .container {
   margin-left: 20px;
 }
-.loading{
+.loading, .progress {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px;
 }
 </style>
