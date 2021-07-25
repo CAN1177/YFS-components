@@ -56,6 +56,10 @@
         <loading1 :width="100" :color="color"></loading1>
         <loading2 :width="100" :color="color"></loading2>
       </div>
+
+      <h3>8、Dialog组件</h3>
+      <dialog-a v-model="show" other-prop="自定义弹窗内容" />
+       <el-button @click="handleOpenDialog">显示弹框</el-button>
     </div>
   </div>
 </template>
@@ -71,6 +75,7 @@ import SelectAll from "./components/AllSelectDropDown";
 // import ImgUpload from "./components/ImgUpload"
 import Star from "./components/Star";
 import Switches from "./components/Switches";
+import DialogA from "./components/Dialog";
 
 export default {
   name: "App",
@@ -85,9 +90,11 @@ export default {
     Loading,
     Loading1,
     Loading2,
+    DialogA,
   },
   data() {
     return {
+      show: false,
       options: [
         { name: "梅西", label: "one" },
         { name: "C罗", label: "tow" },
@@ -130,6 +137,9 @@ export default {
     }, 2000);
   },
   methods: {
+    handleOpenDialog() {
+      this.show = true
+    },
     selectValue(value) {
       console.log("选择的季度是： ", value);
     },
@@ -154,7 +164,8 @@ export default {
 .container {
   margin-left: 20px;
 }
-.loading, .progress {
+.loading,
+.progress {
   display: flex;
   justify-content: flex-start;
   align-items: center;
