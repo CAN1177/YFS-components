@@ -38,7 +38,7 @@
       <select-all @selectedArray="selectedValue" :options="options" />
 
       <h3>4、ElementUI 多图上传拖拽排序</h3>
-      <!-- <img-upload v-model="formData.imgList"/> -->
+      <img-upload v-model="formData.imgList" :limt="2"/>
 
       <h3>5、Star 评分组件</h3>
       <star :starNum="5" @starMarkChange="starChange" />
@@ -72,7 +72,7 @@ import Season from "./components/Season.vue";
 import ProgressCircle from "./components/progress/ProgressCircle";
 import ProgressCircle1 from "./components/progress/CircleProgress";
 import SelectAll from "./components/AllSelectDropDown";
-// import ImgUpload from "./components/ImgUpload"
+import ImgUpload from "./components/ImgUpload"
 import Star from "./components/Star";
 import Switches from "./components/Switches";
 import DialogA from "./components/Dialog";
@@ -84,7 +84,7 @@ export default {
     ProgressCircle, // svg环形进度条
     ProgressCircle1, // canvas环形进度条
     SelectAll, // 下拉全选
-    // ImgUpload, //多图上传
+    ImgUpload, //多图上传
     Star, //star 评分组件
     Switches, //switch 切换
     Loading,

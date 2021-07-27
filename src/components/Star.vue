@@ -47,7 +47,6 @@ export default {
       if (this.readOnly) {
         return
       }
-
       let mark = parseInt(ev.target.dataset.index) + 1
       this.rating = mark
       this.$emit('starMarkChange', mark, this.outIndex)

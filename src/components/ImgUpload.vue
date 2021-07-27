@@ -31,19 +31,18 @@
           <i class="el-icon-delete"></i>
         </div>
       </li>
-      <!-- 上传按钮 -->
+      <!-- 上传按钮   :headers="headers"    :before-upload="beforeUpload" -->
       <el-upload
         slot="footer"
         ref="uploadRef"
         class="uploadBox"
         :style="{ width: width + 'px', height: height + 'px' }"
         action="https://httpbin.org/post"
-        :headers="headers"
+      
         accept=".jpg,.jpeg,.png,.gif"
         :show-file-list="false"
         :multiple="!isSingle"
         :limit="limit"
-        :before-upload="beforeUpload"
         :on-success="onSuccessUpload"
         :on-exceed="onExceed"
       >
@@ -164,7 +163,7 @@ export default {
         return {
           name: "pic" + i,
           url: v,
-          status: "success",
+          // status: "success",
           // uid: tools.createUniqueString(),
         };
       });
