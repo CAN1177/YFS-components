@@ -1,11 +1,15 @@
 <template>
   <Fragment>
-    <Rate :value="3"></Rate>
-    <Rate :value="2.5" theme="red"></Rate>
-    <Rate :value="1" theme="green"></Rate>
+    <h1>你的评分是 {{ score }}</h1>
+    <Rate :value="score" @update-rate="update"></Rate>
   </Fragment>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import Rate from "../components/Rate.vue";
+let score = ref(3.5);
+function update(num) {
+  score.value = num;
+}
 </script>
