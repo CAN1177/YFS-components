@@ -1,9 +1,9 @@
-
 <template>
-    <h1>这是首页</h1>
-    <TodoList />    
+  <Fragment>
+    <TodoList />
+  </Fragment>
 </template>
 
 <script setup>
-import TodoList from '../components/TodoList.vue'
+import TodoList from "../components/TodoList.vue";
 </script>

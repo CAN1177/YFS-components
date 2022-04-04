@@ -20,7 +20,6 @@
 import { ref, computed } from "vue";
 let title = ref("");
 let todoData = ref([{ title: "学习Vue", done: false }]);
-console.log('%c 🍿 todoData: ', 'font-size:20px;background-color: #FCA650;', todoData);
 
 function addTodo() {
   todoData.value.push({
