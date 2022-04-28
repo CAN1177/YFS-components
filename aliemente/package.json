@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint --fix --ext .js,vue src/", 
+    "lint": "eslint --fix --ext .js,vue src/",
     "test": "jest"
   },
   "dependencies": {
@@ -19,12 +19,14 @@
     "@types/jest": "^27.4.1",
     "@vitejs/plugin-vue": "^2.3.0",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "async-validator": "^4.1.1",
     "babel-jest": "26",
     "eslint": "^8.13.0",
     "jest": "26",
+    "mitt": "^3.0.0",
     "sass": "^1.50.0",
     "ts-jest": "26",
-    "typescript": "^4.5.4",
+    "typescript": "4.5.2",
     "vite": "^2.9.0",
     "vue-jest": "^5.0.0-alpha.10",
     "vue-tsc": "^0.29.8"
