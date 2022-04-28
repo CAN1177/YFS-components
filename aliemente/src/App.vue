@@ -6,7 +6,6 @@
       <el-footer>Footer</el-footer>
     </el-container>
     <hr />
-
     <el-container>
       <el-header>Header</el-header>
       <el-container>
@@ -23,13 +22,20 @@
         <el-footer>Footer</el-footer>
       </el-container>
     </el-container>
+    <hr />
+    <el-button type="primary"> 按钮 </el-button>
+    <el-button type="success"> 按钮 </el-button>
+    <el-button>按钮</el-button>
+    <el-button size="large"> 按钮 </el-button>
   </Fragment>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ElButton from "./components/button/Button.vue";
+</script>
 <style>
 body {
-  width: 1000px;
-  margin: 10px auto;
+  width: 80%;
+  margin: 20px auto;
 }
 .el-header,
 .el-footer {
